@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="css/style.css?60568899">
+    <link rel="stylesheet" href="css/style.css?6056889">
     <link rel="stylesheet" href="css/header.css?89892">
     <link rel="icon" href="img/favicon.ico" id="favicon">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
@@ -232,11 +232,32 @@
             <!-- 募集は終了しました。<br>
             <span>たくさんのご応募ありがとうございました。<br>
               入賞者は、2023年3月、当ホームページにて<br class="sp_only">発表いたします。</span> -->
+              <!-- <picture>
+                <source media="(min-width: 751px)" srcset="img/main_button.png">
+                <source media="(max-width: 750px)" srcset="img/main_button.png">
+            <a href="#">
+                <img class="main_button" src="img/main_button.png" loading="lazy" alt="お気に入りの一冊をあなたへ 読書推せん文コンクール 応募期間 2022年5月2日(月)〜2022年9月16日(金) 消印有効">
+            </a>
+              </picture>
             <picture>
               <source media="(min-width: 751px)" srcset="img/mainvisual_img.png">
               <source media="(max-width: 750px)" srcset="img/mainvisual_img_sp.svg">
               <img src="img/mainvisual_img.png" loading="lazy" alt="お気に入りの一冊をあなたへ 読書推せん文コンクール 応募期間 2022年5月2日(月)〜2022年9月16日(金) 消印有効">
-            </picture>
+            </picture> -->
+
+            <img src="img/main.png" usemap="#image-map">
+
+            <map name="image-map">
+                <area target="" alt="入賞作品集はこちらから" title="入賞作品集" href="winners/" coords="599,439,18,796" shape="rect">
+            </map>
+
+
+
+            <!-- <picture>
+              <source media="(min-width: 751px)" srcset="img/main_text.png">
+              <source media="(max-width: 750px)" srcset="img/main_text_sp.svg">
+              <img src="img/main_text.png" loading="lazy" alt="お気に入りの一冊をあなたへ 読書推せん文コンクール 応募期間 2022年5月2日(月)〜2022年9月16日(金) 消印有効">
+            </picture> -->
           </h1>
         </div>
         <div class="mainvisual_bg01"></div>
@@ -650,6 +671,7 @@
       </footer>
     </div>
     <script src="js/index.js"></script>
+    <script src="js/imagemap.js"></script>
     <script>
       if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
         var touch_e = document.querySelectorAll('.menu_drop');
@@ -658,6 +680,8 @@
           touch_e[i].classList.add('touch_effect');
         }
       }
+      imageMapResize();
     </script>
+
   </body>
 </html>

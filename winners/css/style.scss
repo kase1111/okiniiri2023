@@ -4,8 +4,8 @@
       @content;
     }
   }
-$pc:1280px;
-$notepc:960px;
+$pc:1600px;
+$notepc:1200px;
 $tab:750px;
 $sp:479px;
 @mixin pc {
@@ -290,6 +290,15 @@ img {
     }
 }
 
+.note_pc_only {
+    display: none !important
+}
+
+@media screen and (max-width:1200px) {
+    .note_pc_only {
+        display: block !important
+    }
+}
 .sp_only {
     display: none !important
 }
@@ -1741,7 +1750,13 @@ img {
     font-size: 18px;
     text-align: center;
     line-height: 2;
-    letter-spacing: 1px
+    letter-spacing: 1px;
+    &_s{
+        font-size: 14px;
+        @include tab(){
+            font-size: 3vw;
+        }
+    }
 }
 
 .award_intro_txt .small {
@@ -1832,6 +1847,7 @@ img {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%)
 }
+
 .award_intro_menu a::before {
     display: block;
     content: "";
@@ -1917,6 +1933,15 @@ img {
         bottom: 4%;
         -webkit-transform: rotate(20deg);
         transform: rotate(20deg);
+    }
+    .award_intro_menu  a:nth-last-child(1):before {
+        width: 4vw;
+        height: 4vw;
+        top: auto;
+        right: 50%;
+        bottom: 10%;
+        -webkit-transform: translate(50%, 0);
+        transform: translate(50%, 0);
     }
 
 }
@@ -2042,7 +2067,10 @@ img {
     justify-content: space-between;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding-top: 4%
+    padding-top: 4%;
+    li{
+        text-align: left;
+    }
 }
 
 .category-list::after {
@@ -3395,4 +3423,9 @@ img {
     .winners_note {
         font-size: 2.5vw
     }
+}
+.indent {
+	text-indent: -1em;
+	padding-left: 1em;
+    display: inline-block;
 }

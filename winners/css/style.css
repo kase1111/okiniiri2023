@@ -244,6 +244,16 @@ img {
   }
 }
 
+.note_pc_only {
+  display: none !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .note_pc_only {
+    display: block !important;
+  }
+}
+
 .sp_only {
   display: none !important;
 }
@@ -1681,6 +1691,16 @@ img {
   letter-spacing: 1px;
 }
 
+.award_intro_txt_s {
+  font-size: 14px;
+}
+
+@media (max-width: 750px) {
+  .award_intro_txt_s {
+    font-size: 3vw;
+  }
+}
+
 .award_intro_txt .small {
   font-size: 15px;
 }
@@ -1858,6 +1878,15 @@ img {
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
   }
+  .award_intro_menu a:nth-last-child(1):before {
+    width: 4vw;
+    height: 4vw;
+    top: auto;
+    right: 50%;
+    bottom: 10%;
+    -webkit-transform: translate(50%, 0);
+    transform: translate(50%, 0);
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -1982,6 +2011,10 @@ img {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding-top: 4%;
+}
+
+.category-list li {
+  text-align: left;
 }
 
 .category-list::after {
@@ -3291,5 +3324,11 @@ img {
   .winners_note {
     font-size: 2.5vw;
   }
+}
+
+.indent {
+  text-indent: -1em;
+  padding-left: 1em;
+  display: inline-block;
 }
 /*# sourceMappingURL=style.css.map */

@@ -233,7 +233,8 @@
               <img src="../img/award_intro_ttl.png" alt="入賞者・入賞団体">
               <img src="../img/award_chara.png" alt="キャラ">
             </div>
-            <p class="award_intro_txt">応募総数、<span>25,377作品、406団体<br class="sp_only"></span>の中から、<br class="pc_only"><span>個人賞118名、<br class="sp_only">団体賞48団体</span>の<br class="sp_only">入賞が決定しました。</p>
+            <p class="award_intro_txt">応募総数、<span>25,377作品、406団体<br class="sp_only"></span>の中から、<br class="pc_only"><span>個人賞118名、<br class="sp_only">団体賞48団体</span>の<br class="sp_only">入賞が決定しました。
+             <br> <span class="award_intro_txt_s">作品は、入賞者より許諾のとれたものを掲載しています。</span></p>
             <div class="award_intro_menu">
               <a class="hover js-menu_anchor" href="#individual_award">
                 個人賞はコチラ
@@ -257,7 +258,7 @@
                 </picture> -->
               </a>
               <a class="hover" href="pdf/2022_okiniiri_sakuhin.pdf">
-                入賞作品集PDF<br class="sp_only">ダウンロード
+                入賞作品集PDF<br class="note_pc_only">ダウンロード
                 <!-- <picture>
                   <source media="(min-width: 751px)" srcset="../img/award_intro_menu04.png">
                   <source media="(max-width: 750px)" srcset="../img/award_intro_menu04_sp.png"><img src="../img/award_intro_menu04.png" alt="人気の本紹介">
@@ -756,7 +757,7 @@
         <div class="modal-backdrop" @click.self="$emit('close-modal')">
           <div class="modal-container">
             <div class="modal-content">
-              <div class="modal-ttl">『<span v-html="item.booktitle"></span>』<br>すすめたい相手：<span v-html="item.opponent"></span></div>
+              <div class="modal-ttl">『<span v-html="item.booktitle_modal"></span>』<br>すすめたい相手：<span v-html="item.opponent"></span></div>
               <div class="modal-year"><span v-html="item.name"></span>（<span class="n_padding" v-html="item.prefecture"></span>）<br><span v-html="item.year"></span></div>
               <div class="modal-txt" v-html="item.txt"></div>
               <button class="modal_close" type="button" @click="$emit('close-modal')"><img src="../img/competition/modal_close.png" alt=""></button>
@@ -766,7 +767,7 @@
       </div>
     </script>
     <script src="js/index.js"></script>
-    <script src="js/competition.js"></script>
+    <script src="js/competition.js?6543"></script>
     <script>
       if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)){
         var touch_e = document.querySelectorAll('.menu_drop');

@@ -2074,7 +2074,7 @@
         if (n < 0) return '_f("' + t + '")(' + e + ")";
         var r = t.slice(0, n),
           o = t.slice(n + 1);
-        return '_f("' + r + '")(' + e + (")" !== o ? "," + o : o);
+        return '_f("' + r + '")(' + e + (")" !== o ?"," + o : o);
       }
       function Rn(e, t) {}
       function Hn(e, t) {
@@ -2207,7 +2207,7 @@
         var n = er(e);
         return null === n.key
           ? e + "=" + t
-          : "$set(" + n.exp + ", " + n.key + ", " + t + ")";
+          : "$set(" + n.exp +", " + n.key +", " + t + ")";
       }
       function er(e) {
         if (
@@ -2272,23 +2272,23 @@
             t +
             ")?_i(" +
             t +
-            "," +
+           "," +
             o +
             ")>-1" +
-            ("true" === i ? ":(" + t + ")" : ":_q(" + t + "," + i + ")")
+            ("true" === i ? ":(" + t + ")" : ":_q(" + t +"," + i + ")")
         ),
           Jn(
             e,
             "change",
             "var $$a=" +
               t +
-              ",$$el=$event.target,$$c=$$el.checked?(" +
+             ",$$el=$event.target,$$c=$$el.checked?(" +
               i +
               "):(" +
               a +
               ");if(Array.isArray($$a)){var $$v=" +
               (r ? "_n(" + o + ")" : o) +
-              ",$$i=_i($$a,$$v);if($$el.checked){$$i<0&&(" +
+             ",$$i=_i($$a,$$v);if($$el.checked){$$i<0&&(" +
               Qn(t, "$$a.concat([$$v])") +
               ")}else{$$i>-1&&(" +
               Qn(t, "$$a.slice(0,$$i).concat($$a.slice($$i+1))") +
@@ -2303,7 +2303,7 @@
         var r = n && n.number,
           o = Wn(e, "value") || "null";
         (o = r ? "_n(" + o + ")" : o),
-          Bn(e, "checked", "_q(" + t + "," + o + ")"),
+          Bn(e, "checked", "_q(" + t +"," + o + ")"),
           Jn(e, "change", Qn(t, o), null, !0);
       }
       function lr(e, t, n) {
@@ -2489,7 +2489,7 @@
               e.classList.length || e.removeAttribute("class");
           else {
             for (
-              var n = " " + (e.getAttribute("class") || "") + " ",
+              var n = " " + (e.getAttribute("class") || "") + "",
                 r = " " + t + " ";
               n.indexOf(r) >= 0;
 
@@ -2822,8 +2822,8 @@
       function ro(e) {
         var t = "";
         return (
-          e.staticClass && (t += "staticClass:" + e.staticClass + ","),
-          e.classBinding && (t += "class:" + e.classBinding + ","),
+          e.staticClass && (t += "staticClass:" + e.staticClass +","),
+          e.classBinding && (t += "class:" + e.classBinding +","),
           t
         );
       }
@@ -2838,7 +2838,7 @@
       function io(e) {
         var t = "";
         return (
-          e.staticStyle && (t += "staticStyle:" + e.staticStyle + ","),
+          e.staticStyle && (t += "staticStyle:" + e.staticStyle +","),
           e.styleBinding && (t += "style:(" + e.styleBinding + "),"),
           t
         );
@@ -3469,7 +3469,7 @@
       function Ro(e) {
         return m(
           "type,tag,attrsList,attrsMap,plain,parent,children,attrs,start,end,rawAttrsMap" +
-            (e ? "," + e : "")
+            (e ?"," + e : "")
         );
       }
       function Ho(e) {
@@ -3538,12 +3538,12 @@
         for (var i in e) {
           var a = Ko(e[i]);
           e[i] && e[i].dynamic
-            ? (o += i + "," + a + ",")
-            : (r += '"' + i + '":' + a + ",");
+            ? (o += i +"," + a +",")
+            : (r += '"' + i + '":' + a +",");
         }
         return (
           (r = "{" + r.slice(0, -1) + "}"),
-          o ? n + "_d(" + r + ",[" + o.slice(0, -1) + "])" : n + r
+          o ? n + "_d(" + r +",[" + o.slice(0, -1) + "])" : n + r
         );
       }
       function Ko(e) {
@@ -3613,16 +3613,16 @@
         return (
           "_k($event.keyCode," +
           JSON.stringify(e) +
-          "," +
+         "," +
           JSON.stringify(n) +
-          ",$event.key," +
+         ",$event.key," +
           JSON.stringify(r) +
           ")"
         );
       }
       function Wo(e, t) {
         e.wrapListeners = function (e) {
-          return "_g(" + e + "," + t.value + ")";
+          return "_g(" + e +"," + t.value + ")";
         };
       }
       function Zo(e, t) {
@@ -3630,13 +3630,13 @@
           return (
             "_b(" +
             n +
-            ",'" +
+           ",'" +
             e.tag +
             "'," +
             t.value +
-            "," +
+           "," +
             (t.modifiers && t.modifiers.prop ? "true" : "false") +
-            (t.modifiers && t.modifiers.sync ? ",true" : "") +
+            (t.modifiers && t.modifiers.sync ?",true" : "") +
             ")"
           );
         };
@@ -3669,8 +3669,8 @@
               "_c('" +
               e.tag +
               "'" +
-              (r ? "," + r : "") +
-              (o ? "," + o : "") +
+              (r ?"," + r : "") +
+              (o ?"," + o : "") +
               ")";
           }
           for (var i = 0; i < t.transforms.length; i++)
@@ -3688,7 +3688,7 @@
           (t.pre = n),
           "_m(" +
             (t.staticRenderFns.length - 1) +
-            (e.staticInFor ? ",true" : "") +
+            (e.staticInFor ?",true" : "") +
             ")"
         );
       }
@@ -3703,7 +3703,7 @@
             r = r.parent;
           }
           return n
-            ? "_o(" + Xo(e, t) + "," + t.onceId++ + "," + n + ")"
+            ? "_o(" + Xo(e, t) +"," + t.onceId++ +"," + n + ")"
             : Xo(e, t);
         }
         return Yo(e, t);
@@ -3724,8 +3724,8 @@
       function ni(e, t, n, r) {
         var o = e.for,
           i = e.alias,
-          a = e.iterator1 ? "," + e.iterator1 : "",
-          s = e.iterator2 ? "," + e.iterator2 : "";
+          a = e.iterator1 ?"," + e.iterator1 : "",
+          s = e.iterator2 ?"," + e.iterator2 : "";
         return (
           (e.forProcessed = !0),
           (r || "_l") +
@@ -3743,33 +3743,33 @@
       function ri(e, t) {
         var n = "{",
           r = oi(e, t);
-        r && (n += r + ","),
-          e.key && (n += "key:" + e.key + ","),
-          e.ref && (n += "ref:" + e.ref + ","),
+        r && (n += r +","),
+          e.key && (n += "key:" + e.key +","),
+          e.ref && (n += "ref:" + e.ref +","),
           e.refInFor && (n += "refInFor:true,"),
           e.pre && (n += "pre:true,"),
           e.component && (n += 'tag:"' + e.tag + '",');
         for (var o = 0; o < t.dataGenFns.length; o++) n += t.dataGenFns[o](e);
         if (
-          (e.attrs && (n += "attrs:" + bi(e.attrs) + ","),
-          e.props && (n += "domProps:" + bi(e.props) + ","),
-          e.events && (n += Vo(e.events, !1) + ","),
-          e.nativeEvents && (n += Vo(e.nativeEvents, !0) + ","),
-          e.slotTarget && !e.slotScope && (n += "slot:" + e.slotTarget + ","),
-          e.scopedSlots && (n += ai(e, e.scopedSlots, t) + ","),
+          (e.attrs && (n += "attrs:" + bi(e.attrs) +","),
+          e.props && (n += "domProps:" + bi(e.props) +","),
+          e.events && (n += Vo(e.events, !1) +","),
+          e.nativeEvents && (n += Vo(e.nativeEvents, !0) +","),
+          e.slotTarget && !e.slotScope && (n += "slot:" + e.slotTarget +","),
+          e.scopedSlots && (n += ai(e, e.scopedSlots, t) +","),
           e.model &&
             (n +=
               "model:{value:" +
               e.model.value +
-              ",callback:" +
+             ",callback:" +
               e.model.callback +
-              ",expression:" +
+             ",expression:" +
               e.model.expression +
               "},"),
           e.inlineTemplate)
         ) {
           var i = ii(e, t);
-          i && (n += i + ",");
+          i && (n += i +",");
         }
         return (
           (n = n.replace(/,$/, "") + "}"),
@@ -3802,16 +3802,16 @@
                   i.rawName +
                   '"' +
                   (i.value
-                    ? ",value:(" +
+                    ?",value:(" +
                       i.value +
                       "),expression:" +
                       JSON.stringify(i.value)
                     : "") +
                   (i.arg
-                    ? ",arg:" + (i.isDynamicArg ? i.arg : '"' + i.arg + '"')
+                    ?",arg:" + (i.isDynamicArg ? i.arg : '"' + i.arg + '"')
                     : "") +
                   (i.modifiers
-                    ? ",modifiers:" + JSON.stringify(i.modifiers)
+                    ?",modifiers:" + JSON.stringify(i.modifiers)
                     : "") +
                   "},"));
           }
@@ -3860,8 +3860,8 @@
           "scopedSlots:_u([" +
           a +
           "]" +
-          (r ? ",null,true" : "") +
-          (!r && o ? ",null,false," + si(a) : "") +
+          (r ?",null,true" : "") +
+          (!r && o ?",null,false," + si(a) : "") +
           ")"
         );
       }
@@ -3887,8 +3887,8 @@
                 : ui(e, t) || "undefined"
               : Xo(e, t)) +
             "}",
-          i = r ? "" : ",proxy:true";
-        return "{key:" + (e.slotTarget || '"default"') + ",fn:" + o + i + "}";
+          i = r ? "" :",proxy:true";
+        return "{key:" + (e.slotTarget || '"default"') +",fn:" + o + i + "}";
       }
       function ui(e, t, n, r, o) {
         var i = e.children;
@@ -3900,7 +3900,7 @@
             "template" !== a.tag &&
             "slot" !== a.tag
           ) {
-            var s = n ? (t.maybeComponent(a) ? ",1" : ",0") : "";
+            var s = n ? (t.maybeComponent(a) ?",1" :",0") : "";
             return "" + (r || Xo)(a, t) + s;
           }
           var c = n ? fi(i, t.maybeComponent) : 0,
@@ -3913,7 +3913,7 @@
               })
               .join(",") +
             "]" +
-            (c ? "," + c : "")
+            (c ?"," + c : "")
           );
         }
       }
@@ -3964,7 +3964,7 @@
       function hi(e, t) {
         var n = e.slotName || '"default"',
           r = ui(e, t),
-          o = "_t(" + n + (r ? "," + r : ""),
+          o = "_t(" + n + (r ?"," + r : ""),
           i =
             e.attrs || e.dynamicAttrs
               ? bi(
@@ -3981,27 +3981,27 @@
               : null,
           a = e.attrsMap["v-bind"];
         return (
-          (!i && !a) || r || (o += ",null"),
-          i && (o += "," + i),
-          a && (o += (i ? "" : ",null") + "," + a),
+          (!i && !a) || r || (o +=",null"),
+          i && (o +="," + i),
+          a && (o += (i ? "" :",null") +"," + a),
           o + ")"
         );
       }
       function yi(e, t, n) {
         var r = t.inlineTemplate ? null : ui(t, n, !0);
-        return "_c(" + e + "," + ri(t, n) + (r ? "," + r : "") + ")";
+        return "_c(" + e +"," + ri(t, n) + (r ?"," + r : "") + ")";
       }
       function bi(e) {
         for (var t = "", n = "", r = 0; r < e.length; r++) {
           var o = e[r],
             i = gi(o.value);
           o.dynamic
-            ? (n += o.name + "," + i + ",")
-            : (t += '"' + o.name + '":' + i + ",");
+            ? (n += o.name +"," + i +",")
+            : (t += '"' + o.name + '":' + i +",");
         }
         return (
           (t = "{" + t.slice(0, -1) + "}"),
-          n ? "_d(" + t + ",[" + n.slice(0, -1) + "])" : t
+          n ? "_d(" + t +",[" + n.slice(0, -1) + "])" : t
         );
       }
       function gi(e) {
@@ -5730,7 +5730,7 @@
           esc: ["Esc", "Escape"],
           tab: "Tab",
           enter: "Enter",
-          space: [" ", "Spacebar"],
+          space: ["", "Spacebar"],
           up: ["Up", "ArrowUp"],
           left: ["Left", "ArrowLeft"],
           right: ["Right", "ArrowRight"],
@@ -6176,6 +6176,7 @@
     "year": "聖ドミニコ学院<span class='inline-bl'>小学校２年生</span>",
     "prefecture": "宮城県",
     "booktitle": "小学館の図鑑 ＮＥＯ 岩石・鉱物・化石",
+    "booktitle_modal": "小学館の図鑑 ＮＥＯ 岩石・鉱物・化石",
     "note01": "指導・監修・執筆／萩谷宏、堀秀道、平野弘道ほか",
     "note02": "小学館",
     "opponent": "お母さん",
@@ -6186,7 +6187,8 @@
     "name": "栗島彩央",
     "year": "古河市立上辺見<span class='inline-bl'>小学校２年生</span>",
     "prefecture": "茨城県",
-    "booktitle": "そうだったのか！ しゅんかん図鑑",
+    "booktitle": "そうだったのか！　しゅんかん図鑑",
+    "booktitle_modal": "そうだったのか！ しゅんかん図鑑",
     "note01": "伊知地国夫／写真",
     "note02": "小学館",
     "opponent": "おかあさん",
@@ -6198,6 +6200,7 @@
     "year": "桐生市立西<span class='inline-bl'>小学校３年生</span>",
     "prefecture": "群馬県",
     "booktitle": "かがやけいのち！みらいちゃん",
+    "booktitle_modal": "かがやけいのち！みらいちゃん",
     "note01": "今西乃子／文<br>ひろみちいと／絵",
     "note02": "岩崎書店",
     "opponent": "これから犬をかう人、犬をかっている人",
@@ -6208,7 +6211,8 @@
     "name": "赤木華奈",
     "year": "昭和女子大学附属昭和<span class='inline-bl'>小学校２年生</span>",
     "prefecture": "東京都",
-    "booktitle": "花いっぱい まどさんの詩の本",
+    "booktitle": "花いっぱい　まどさんの詩の本",
+    "booktitle_modal": "花いっぱい まどさんの詩の本",
     "note01": "まど・みちお／著<br>長新太／絵",
     "note02": "理論社",
     "opponent": "昭和小学校の二年生のみんな",
@@ -6220,6 +6224,7 @@
     "year": "昭和女子大学附属昭和<span class='inline-bl'>小学校２年生</span>",
     "prefecture": "東京都",
     "booktitle": "アッチとドッチのフルーツポンチ",
+    "booktitle_modal": "アッチとドッチのフルーツポンチ",
     "note01": "角野栄子／作<br>佐々木洋子／絵",
     "note02": "ポプラ社",
     "opponent": "天国にいるおばけさんたち",
@@ -6230,7 +6235,8 @@
     "name": "宮本環",
     "year": "東京農業大学稲花<span class='inline-bl'>小学校３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "銀河鉄道の夜",
+    "booktitle": "10歳までに読みたい日本名作　銀河鉄道の夜",
+    "booktitle_modal": "銀河鉄道の夜",
     "note01": "宮沢賢治／原作<br>芝田勝茂／文<br>戸部淑／絵<br>加藤康子／監修",
     "note02": "Gakken",
     "opponent": "「銀河鉄道の夜」を一回読んだ人",
@@ -6242,6 +6248,7 @@
     "year": "渋谷区立鳩森<span class='inline-bl'>小学校３年生</span>",
     "prefecture": "東京都",
     "booktitle": "ものぐさトミー",
+    "booktitle_modal": "ものぐさトミー",
     "note01": "ペーン・デュボア／文・絵<br>松岡享子／訳",
     "note02": "岩波書店",
     "opponent": "わたしのお父さん",
@@ -6252,7 +6259,8 @@
     "name": "北見悠太",
     "year": "横浜市立洋光台第一<span class='inline-bl'>小学校２年生</span>",
     "prefecture": "神奈川県",
-    "booktitle": "コンパス時刻表 2020年5月号",
+    "booktitle": "全国版コンパス時刻表 2020年5月号",
+    "booktitle_modal": "コンパス時刻表 2020年5月号",
     "note01": "",
     "note02": "交通新聞社",
     "opponent": "お父さん",
@@ -6264,6 +6272,7 @@
     "year": "金沢市立小坂<span class='inline-bl'>小学校１年生</span>",
     "prefecture": "石川県",
     "booktitle": "ごめんねともだち",
+    "booktitle_modal": "ごめんねともだち",
     "note01": "内田麟太郎／作<br>降矢なな／絵",
     "note02": "偕成社",
     "opponent": "けんかしたひと",
@@ -6275,6 +6284,7 @@
     "year": "学童保育施設びっぐふぁみりー<span class='inline-bl'>２年生</span>",
     "prefecture": "大阪府",
     "booktitle": "超ビジュアル！戦国武将大事典",
+    "booktitle_modal": "超ビジュアル！戦国武将大事典",
     "note01": "矢部健太郎／監修",
     "note02": "西東社",
     "opponent": "れきしが大すきな友だち",
@@ -6285,7 +6295,8 @@
     "name": "美馬理伯",
     "year": "大阪教育大学附属天王寺<span class='inline-bl'>小学校３年生</span>",
     "prefecture": "大阪府",
-    "booktitle": "むしばミュータンスのぼうけん",
+    "booktitle": "かこさとし からだの本３ むしばミュータンスのぼうけん",
+    "booktitle_modal": "むしばミュータンスのぼうけん",
     "note01": "かこさとし／作",
     "note02": "童心社",
     "opponent": "一歳のはとこ睦人君",
@@ -6297,6 +6308,7 @@
     "year": "姫路市立豊富<span class='inline-bl'>小中学校２年生</span>",
     "prefecture": "兵庫県",
     "booktitle": "ま、いっか！",
+    "booktitle_modal": "ま、いっか！",
     "note01": "サトシン／作<br>ドーリー／絵",
     "note02": "えほんの杜",
     "opponent": "つかれたおとなへ",
@@ -6307,7 +6319,8 @@
     "name": "川上心愛稀",
     "year": "姫路市立豊富<span class='inline-bl'>小中学校１年生</span>",
     "prefecture": "兵庫県",
-    "booktitle": "だいじょうぶ だいじょうぶ",
+    "booktitle": "だいじょうぶ　だいじょうぶ",
+    "booktitle_modal": "だいじょうぶ だいじょうぶ",
     "note01": "いとうひろし／文・絵",
     "note02": "講談社",
     "opponent": "こわがりないもうと",
@@ -6319,6 +6332,7 @@
     "year": "姫路市立荒川<span class='inline-bl'>小学校１年生</span>",
     "prefecture": "兵庫県",
     "booktitle": "いちねんせいになったあなたへ",
+    "booktitle_modal": "いちねんせいになったあなたへ",
     "note01": "江國香織／詩<br>井口真吾／絵<br>",
     "note02": "小学館",
     "opponent": "１ねんせいになるこ",
@@ -6329,7 +6343,8 @@
     "name": "佐藤優",
     "year": "智辯学園奈良カレッジ<span class='inline-bl'>小学部２年生</span>",
     "prefecture": "奈良県",
-    "booktitle": "絵本 いのちをいただく みいちゃんがお肉になる日",
+    "booktitle": "絵本　いのちをいただく　みいちゃんがお肉になる日",
+    "booktitle_modal": "絵本 いのちをいただく みいちゃんがお肉になる日",
     "note01": "坂本義喜／原案<br>内田美智子／作<br>魚戸おさむとゆかいななかまたち／絵",
     "note02": "講談社",
     "opponent": "牛肉を食べる人みんな",
@@ -6341,6 +6356,7 @@
     "year": "英数学館<span class='inline-bl'>小学校１年生</span>",
     "prefecture": "岡山県",
     "booktitle": "勇気",
+    "booktitle_modal": "勇気",
     "note01": "バーナード・ウェーバー／作<br>日野原重明／訳",
     "note02": "ユーリーグ",
     "opponent": "パパとママ",
@@ -6352,6 +6368,7 @@
     "year": "府中町立府中<span class='inline-bl'>小学校３年生</span>",
     "prefecture": "広島県",
     "booktitle": "りんごかもしれない",
+    "booktitle_modal": "りんごかもしれない",
     "note01": "ヨシタケシンスケ／作",
     "note02": "ブロンズ新社",
     "opponent": "りんごがどれも同じに見える人",
@@ -6363,6 +6380,7 @@
     "year": "佐賀市立久保泉<span class='inline-bl'>小学校３年生</span>",
     "prefecture": "佐賀県",
     "booktitle": "おさがり",
+    "booktitle_modal": "おさがり",
     "note01": "くすのきしげのり／作<br>北村裕花／絵",
     "note02": "東洋館出版社",
     "opponent": "おさがりを、持っている子",
@@ -6374,6 +6392,7 @@
     "year": "宮崎市立倉岡<span class='inline-bl'>小学校２年生</span>",
     "prefecture": "宮崎県",
     "booktitle": "みえるとか みえないとか",
+    "booktitle_modal": "みえるとか みえないとか",
     "note01": "ヨシタケシンスケ／さく<br>伊藤亜紗／そうだん",
     "note02": "アリス館",
     "opponent": "お母さんのはたらくしせつでくらす○○へ",
@@ -6385,6 +6404,7 @@
     "year": "神村学園<span class='inline-bl'>初等部２年生</span>",
     "prefecture": "鹿児島県",
     "booktitle": "あなたがとってもかわいい",
+    "booktitle_modal": "あなたがとってもかわいい",
     "note01": "みやにしたつや／作・絵",
     "note02": "金の星社",
     "opponent": "かぞく",
@@ -6395,7 +6415,8 @@
     "name": "船附晃暉",
     "year": "神村学園<span class='inline-bl'>初等部２年生</span>",
     "prefecture": "鹿児島県",
-    "booktitle": "目で見るＳＤＧｓ時代の環境問題",
+    "booktitle": "目で見るSDGs時代の環境問題",
+    "booktitle_modal": "目で見るＳＤＧｓ時代の環境問題",
     "note01": "ジェス・フレンチ／著<br>大塚道子／訳",
     "note02": "さ・え・ら書房",
     "opponent": "・レジぶくろを買ったことがある人<br>・ごはんをのこしたことがある人",
@@ -6407,6 +6428,7 @@
     "year": "神村学園<span class='inline-bl'>初等部１年生</span>",
     "prefecture": "鹿児島県",
     "booktitle": "大ピンチずかん",
+    "booktitle_modal": "大ピンチずかん",
     "note01": "鈴木のりたけ／作<br>",
     "note02": "小学館",
     "opponent": "ピンチにあってたいへんなひとへ",
@@ -6419,7 +6441,8 @@
     "name": "栗田紗凪",
     "year": "石巻市立石巻<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "宮城県",
-    "booktitle": "こころのふしぎ なぜ？どうして？",
+    "booktitle": "こころのふしぎ　なぜ？どうして？",
+    "booktitle_modal": "こころのふしぎ なぜ？どうして？",
     "note01": "大野正人／原案・執筆<br>村山哲哉／監修",
     "note02": "高橋書店",
     "opponent": "友達にこまっているＡさん！",
@@ -6431,6 +6454,7 @@
     "year": "聖ドミニコ学院<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "宮城県",
     "booktitle": "きみの友だち",
+    "booktitle_modal": "きみの友だち",
     "note01": "重松清／著",
     "note02": "新潮文庫",
     "opponent": "本当の友達を探しているあなたへ",
@@ -6441,7 +6465,8 @@
     "name": "清水璃乃",
     "year": "安中市立磯部<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "群馬県",
-    "booktitle": "失敗図鑑 すごい人ほどダメだった！",
+    "booktitle": "失敗図鑑　すごい人ほどダメだった！",
+    "booktitle_modal": "失敗図鑑 すごい人ほどダメだった！",
     "note01": "大野正人／著",
     "note02": "文響社",
     "opponent": "失敗続きで落ち込んでいる人",
@@ -6453,6 +6478,7 @@
     "year": "甘楽町立福島<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "群馬県",
     "booktitle": "ころべばいいのに",
+    "booktitle_modal": "ころべばいいのに",
     "note01": "ヨシタケシンスケ／作",
     "note02": "ブロンズ新社",
     "opponent": "だれかがきらいなあなたへ",
@@ -6464,10 +6490,11 @@
     "year": "昭和学院<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "千葉県",
     "booktitle": "10代の真ん中で",
+    "booktitle_modal": "10代の真ん中で",
     "note01": "村瀬学／著",
     "note02": "岩波ジュニア新書",
     "opponent": "10代のみなさんへ",
-    "txt": "　この春から成人年齢が18歳になりました。成人？　18歳？　と、はてなが頭に浮かんだけれど、今、私は12歳。成人とやらになるのに、あと６年、なのかまだ６年か、目の前の事に必死な自分がいます。<br>　本の中で、中学生のケイ君とモンテ先生が会話をします。そのやり取りは、ケイ君が最近〝わからない〟と感じる事だったり、世の中の出来事だったり、大人になる目安ってなんだって話だったりします。そう、私も近頃、自分がわからない、友達がわからない、大人がわからないの三拍子が揃っていて、読みながら心でうなずいていました。６年後か、いつかどこかで出会う誰かと、あの頃はねと話をする日が楽しみになる一冊です。〝わからない〟を楽しむぞ。"
+    "txt": "　この春から成人年齢が18歳になりました。成人？　18歳？　と、はてなが頭に浮かんだけれど、今、私は12歳。成人とやらになるのに、あと６年、なのかまだ６年か、目の前の事に必死な自分がいます。<br>　本の中で、中学生のケイ君とモンテ先生が会話をします。そのやり取りは、ケイ君が最近“わからない”と感じる事だったり、世の中の出来事だったり、大人になる目安ってなんだって話だったりします。そう、私も近頃、自分がわからない、友達がわからない、大人がわからないの三拍子が揃っていて、読みながら心でうなずいていました。６年後か、いつかどこかで出会う誰かと、あの頃はねと話をする日が楽しみになる一冊です。“わからない”を楽しむぞ。"
   },
   {
     "id": "elementary-2-6",
@@ -6475,6 +6502,7 @@
     "year": "昭和学院<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "千葉県",
     "booktitle": "そらいろ男爵",
+    "booktitle_modal": "そらいろ男爵",
     "note01": "ジル・ボム／文<br>ティエリー・デデュー／絵<br>中島さおり／訳",
     "note02": "主婦の友社",
     "opponent": "戦争をしている人達へ",
@@ -6486,6 +6514,7 @@
     "year": "品川区立八潮学園<span class='inline-bl'>５年生</span>",
     "prefecture": "東京都",
     "booktitle": "世界の不思議な図書館",
+    "booktitle_modal": "世界の不思議な図書館",
     "note01": "アレックス・ジョンソン／著<br>北川玲／訳",
     "note02": "創元社",
     "opponent": "本ぎらいのあなたへ",
@@ -6497,6 +6526,7 @@
     "year": "学習院<span class='inline-bl'>初等科５年生</span>",
     "prefecture": "東京都",
     "booktitle": "ふたごチャレンジ！ 「フツウ」なんかブッとばせ!!",
+    "booktitle_modal": "ふたごチャレンジ！ 「フツウ」なんかブッとばせ!!",
     "note01": "七都にい／作<br>しめ子／絵",
     "note02": "角川つばさ文庫",
     "opponent": "差別をしてしまう大人へ",
@@ -6507,7 +6537,8 @@
     "name": "小原芽生",
     "year": "世田谷区立駒沢<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "東京都",
-    "booktitle": "きょうだい 障害のある家族との道のり",
+    "booktitle": "きょうだい　障害のある家族との道のり",
+    "booktitle_modal": "きょうだい 障害のある家族との道のり",
     "note01": "白鳥めぐみ、諏方智広、本間尚史／著",
     "note02": "中央法規出版",
     "opponent": "きょうだい児さん",
@@ -6518,7 +6549,8 @@
     "name": "鈴木勇人",
     "year": "成蹊<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "東京都",
-    "booktitle": "学習まんが 世界の歴史",
+    "booktitle": "小学館版学習まんが世界の歴史",
+    "booktitle_modal": "学習まんが 世界の歴史",
     "note01": "新井淳也ほか／まんが<br>山川出版社／編集協力",
     "note02": "小学館",
     "opponent": "プーチン大とうりょう",
@@ -6530,6 +6562,7 @@
     "year": "八王子市立緑が丘<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "東京都",
     "booktitle": "ひみつのかんかん",
+    "booktitle_modal": "ひみつのかんかん",
     "note01": "花山かずみ／作",
     "note02": "偕成社",
     "opponent": "今はもういない、ひいおばあちゃん",
@@ -6540,7 +6573,8 @@
     "name": "松田明日花",
     "year": "東村山市立東萩山<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "東京都",
-    "booktitle": "超訳 ニーチェの言葉",
+    "booktitle": "超訳　ニーチェの言葉",
+    "booktitle_modal": "超訳 ニーチェの言葉",
     "note01": "フリードリヒ・ニーチェ／著<br>白取春彦／編訳",
     "note02": "ディスカヴァー・トゥエンティワン",
     "opponent": "頑張って生きている人へ",
@@ -6551,7 +6585,8 @@
     "name": "米原碧希",
     "year": "稲城市立長峰<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "東京都",
-    "booktitle": "世界を変えた１００人の女の子の物語",
+    "booktitle": "世界を変えた100人の女の子の物語",
+    "booktitle_modal": "世界を変えた１００人の女の子の物語",
     "note01": "エレナ・ファヴィッリ、フランチェスカ・カヴァッロ／著<br>芹澤恵、高里ひろ／訳",
     "note02": "河出書房新社",
     "opponent": "悩みがある女の子",
@@ -6563,6 +6598,7 @@
     "year": "横浜市立義務教育学校<span class='inline-bl'> 緑園学園５年生</span>",
     "prefecture": "神奈川県",
     "booktitle": "ゆりの木荘の子どもたち",
+    "booktitle_modal": "ゆりの木荘の子どもたち",
     "note01": "富安陽子／作<br>佐竹美保／絵",
     "note02": "講談社",
     "opponent": "果たせていない約束がある人",
@@ -6573,7 +6609,8 @@
     "name": "田野凌菜",
     "year": "越前市立吉野<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "福井県",
-    "booktitle": "火垂るの墓",
+    "booktitle": "徳間アニメ絵本５　火垂るの墓",
+    "booktitle_modal": "火垂るの墓",
     "note01": "野坂昭如／原作<br>高畑勲／監督",
     "note02": "徳間書店",
     "opponent": "妹がいるお兄ちゃん",
@@ -6584,7 +6621,8 @@
     "name": "伊藤果恋",
     "year": "飯田市立鼎<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "長野県",
-    "booktitle": "おやすみ、ロジャー",
+    "booktitle": "おやすみ、ロジャー　魔法のぐっすり絵本",
+    "booktitle_modal": "おやすみ、ロジャー",
     "note01": "カール＝ヨハン・エリーン／著<br>三橋美穂／監",
     "note02": "飛鳥新社",
     "opponent": "ねむれない人",
@@ -6596,6 +6634,7 @@
     "year": "武豊町立武豊<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "愛知県",
     "booktitle": "かあちゃん取扱説明書",
+    "booktitle_modal": "かあちゃん取扱説明書",
     "note01": "いとうみく／作<br>佐藤真紀子／絵",
     "note02": "童心社",
     "opponent": "お母さんとケンカ中の人",
@@ -6607,6 +6646,7 @@
     "year": "四日市市立羽津北<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "三重県",
     "booktitle": "十五少年漂流記",
+    "booktitle_modal": "十五少年漂流記",
     "note01": "ジュール・ベルヌ／著<br>那須辰造／訳<br>金斗鉉／絵",
     "note02": "講談社青い鳥文庫",
     "opponent": "ぼうけんが好きで読書が苦手な子へ",
@@ -6617,7 +6657,8 @@
     "name": "寺田海空",
     "year": "大阪教育大学附属天王寺<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "大阪府",
-    "booktitle": "カサうしろに振るやつ絶滅しろ！ 絶滅してほしい!?迷惑生物図鑑",
+    "booktitle": "カサうしろに振るやつ絶滅しろ！　絶滅してほしい！？迷惑生物図鑑",
+    "booktitle_modal": "カサうしろに振るやつ絶滅しろ！ 絶滅してほしい!?迷惑生物図鑑",
     "note01": "氏田雄介／原案<br>武田侑大／絵<br>ＣＨＯＣＯＬＡＴＥ<br>Ｉｎｃ．／制作<br>",
     "note02": "小学館",
     "opponent": "世界中の人",
@@ -6628,7 +6669,8 @@
     "name": "長尾奈波",
     "year": "神戸市立つつじが丘<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "兵庫県",
-    "booktitle": "ココ・シャネル",
+    "booktitle": "コミック版 世界の伝記　ココ・シャネル",
+    "booktitle_modal": "ココ・シャネル",
     "note01": "久松ゆのみ／漫画<br>塚田朋子／監修",
     "note02": "ポプラ社",
     "opponent": "デザイナーになりたい小学生へ",
@@ -6640,10 +6682,11 @@
     "year": "生駒市立生駒台<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "奈良県",
     "booktitle": "かあちゃん取扱説明書",
+    "booktitle_modal": "かあちゃん取扱説明書",
     "note01": "いとうみく／作<br>佐藤真紀子／絵",
     "note02": "童心社",
     "opponent": "お母さん",
-    "txt": "　主人公がお母さんに少しふまんを持っているところに、とても共感しました。<br>「さいごに、かあちゃんはすぐ『早く』っていうけれど、でかけるとき一番したくがのろいのはかあちゃんです。ぼくが『早く』っていうとおこるのも、やめてほしいと思います。」<br>　てつやくんがかいたこの作文が、特に気に入っています。ぼくは、お母さんが大好きだけど、この作文の「早く」みたいなことをガミガミ言わないでほしいです。なぜならぼくのお母さんも当たり前のように「これやって。あれもやって」といいます。イライラしたりうんざりしたりするぼくの気持ちを知ってもらうために、しっかり読んでもらいたいです。"
+    "txt": "　主人公がお母さんに少しふまんを持っているところに、とても共感しました。<br><span class='indent'>「さいごに、かあちゃんはすぐ『早く』っていうけれど、でかけるとき一番したくがのろいのはかあちゃんです。ぼくが『早く』っていうとおこるのも、やめてほしいと思います。」</span><br>　てつやくんがかいたこの作文が、特に気に入っています。ぼくは、お母さんが大好きだけど、この作文の「早く」みたいなことをガミガミ言わないでほしいです。なぜならぼくのお母さんも当たり前のように「これやって。あれもやって」といいます。イライラしたりうんざりしたりするぼくの気持ちを知ってもらうために、しっかり読んでもらいたいです。"
   },
   {
     "id": "elementary-2-22",
@@ -6651,10 +6694,11 @@
     "year": "和歌山市立安原<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "和歌山県",
     "booktitle": "二番目の悪者",
+    "booktitle_modal": "二番目の悪者",
     "note01": "林木林／作<br>庄野ナホコ／絵",
     "note02": "小さい書房",
     "opponent": "拡散しようとしている人へ",
-    "txt": "　今、拡散しようとしている人、少し止まって『二番目の悪者』を読んでみて下さい。うそのうわさがだんだんと広がって、本当のことのようになってしまう過程が、とてもおそろしく書かれています。<br>「嘘は、向こうから巧妙にやってくるが、真実は、自らさがし求めなければ見つけられない」<br>　全てを見ていた雲がつぶやいた言葉です。<br>　私は、この言葉にハッとさせられました。だれでも簡単に発信できるからこそ、自分の考えをしっかりと持つこと。無責任に信じて悪意に加担しないようにすることが大切なんだと。<br>　だから、あなたも少し考えてみて下さい。<br>「二番目の悪者」になる前に。"
+    "txt": "　今、拡散しようとしている人、少し止まって『二番目の悪者』を読んでみて下さい。うそのうわさがだんだんと広がって、本当のことのようになってしまう過程が、とてもおそろしく書かれています。<br><span class='indent'>「嘘は、向こうから巧妙にやってくるが、真実は、自らさがし求めなければ見つけられない」</span><br>　全てを見ていた雲がつぶやいた言葉です。<br>　私は、この言葉にハッとさせられました。だれでも簡単に発信できるからこそ、自分の考えをしっかりと持つこと。無責任に信じて悪意に加担しないようにすることが大切なんだと。<br>　だから、あなたも少し考えてみて下さい。<br>「二番目の悪者」になる前に。"
   },
   {
     "id": "elementary-2-23",
@@ -6662,6 +6706,7 @@
     "year": "かつらぎ町立大谷<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "和歌山県",
     "booktitle": "しあわせをさがしている きみに",
+    "booktitle_modal": "しあわせをさがしている きみに",
     "note01": "エヴァ・イーランド／作<br>いとうひろみ／訳",
     "note02": "ほるぷ出版",
     "opponent": "二年前のぼく",
@@ -6672,7 +6717,8 @@
     "name": "平岡希唯",
     "year": "笠岡市立城見<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "岡山県",
-    "booktitle": "平家物語",
+    "booktitle": "教科書にでてくる古典　マンガでさきどり平家物語",
+    "booktitle_modal": "平家物語",
     "note01": "岸田恋／マンガ<br>平田喜信／監修<br>けーしん／イラスト",
     "note02": "くもん出版",
     "opponent": "平家の方々",
@@ -6683,7 +6729,8 @@
     "name": "藤川果穂",
     "year": "笠岡市立城見<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "岡山県",
-    "booktitle": "グレッグのダメ日記 さすがに、へとへとだよ",
+    "booktitle": "グレッグのダメ日記　さすがに、へとへとだよ",
+    "booktitle_modal": "グレッグのダメ日記 さすがに、へとへとだよ",
     "note01": "ジェフ・キニー／作<br>中井はるの／訳",
     "note02": "ポプラ社",
     "opponent": "いつもおこっているお母さんへ",
@@ -6694,7 +6741,8 @@
     "name": "渡成蒼",
     "year": "英数学館<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "広島県",
-    "booktitle": "怪人二十面相",
+    "booktitle": "少年探偵・江戸川乱歩(1)　怪人二十面相",
+    "booktitle_modal": "怪人二十面相",
     "note01": "江戸川乱歩／作<br>藤田新策／装丁・画家",
     "note02": "ポプラ社",
     "opponent": "友達",
@@ -6706,6 +6754,7 @@
     "year": "府中町立府中<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "広島県",
     "booktitle": "トットちゃんとソウくんの戦争",
+    "booktitle_modal": "トットちゃんとソウくんの戦争",
     "note01": "黒柳徹子、田原総一朗／著",
     "note02": "講談社",
     "opponent": "プーチン大統領",
@@ -6717,6 +6766,7 @@
     "year": "府中町立府中<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "広島県",
     "booktitle": "しっぱいに かんぱい！",
+    "booktitle_modal": "しっぱいに かんぱい！",
     "note01": "宮川ひろ／作<br>小泉るみ子／絵",
     "note02": "童心社",
     "opponent": "しっぱいをしてしまった人",
@@ -6727,7 +6777,8 @@
     "name": "竹之内凜",
     "year": "大野城市立大野東<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "福岡県",
-    "booktitle": "かがみの孤城",
+    "booktitle": "かがみの孤城(上下巻)",
+    "booktitle_modal": "かがみの孤城",
     "note01": "辻村深月／著",
     "note02": "ポプラ文庫",
     "opponent": "みんなと同じになれないと感じている人",
@@ -6739,6 +6790,7 @@
     "year": "明治学園<span class='inline-bl'>小学校４年生</span>",
     "prefecture": "福岡県",
     "booktitle": "ころべばいいのに",
+    "booktitle_modal": "ころべばいいのに",
     "note01": "ヨシタケシンスケ／作",
     "note02": "ブロンズ新社",
     "opponent": "今、つらいと思っている人へ",
@@ -6750,6 +6802,7 @@
     "year": "宮崎市立本郷<span class='inline-bl'>小学校５年生</span>",
     "prefecture": "宮崎県",
     "booktitle": "きょうはなんのひ？",
+    "booktitle_modal": "きょうはなんのひ？",
     "note01": "瀬田貞二／作<br>林明子／絵",
     "note02": "福音館書店",
     "opponent": "家族をお祝いしたいあなたへ",
@@ -6761,6 +6814,7 @@
     "year": "薩摩川内市立高来<span class='inline-bl'>小学校６年生</span>",
     "prefecture": "鹿児島県",
     "booktitle": "僕は上手にしゃべれない",
+    "booktitle_modal": "僕は上手にしゃべれない",
     "note01": "椎野直弥／著",
     "note02": "ポプラ社",
     "opponent": "しゃべるのがにがてなあなたへ",
@@ -6773,7 +6827,8 @@
     "name": "清水英世",
     "year": "札幌市立栄南<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "北海道",
-    "booktitle": "みえるとか みえないとか ",
+    "booktitle": "みえるとか みえないとか",
+    "booktitle_modal": "みえるとか みえないとか ",
     "note01": "ヨシタケシンスケ／さく<br>伊藤亜紗／そうだん",
     "note02": "アリス館",
     "opponent": "ふつうって何だろう？と思っている人へ",
@@ -6784,7 +6839,8 @@
     "name": "堀山直浩",
     "year": "札幌市立向陵<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "北海道",
-    "booktitle": "すべての人生について ",
+    "booktitle": "すべての人生について",
+    "booktitle_modal": "すべての人生について ",
     "note01": "浅田次郎／著<br>",
     "note02": "幻冬舎文庫",
     "opponent": "漠然とした不安に吸い込まれそうな息苦しさを感じている全ての受験生へ",
@@ -6795,7 +6851,8 @@
     "name": "石川沙妃",
     "year": "奥州市立水沢<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "岩手県",
-    "booktitle": "君がひとりで泣いた夜を、僕は全部抱きしめる。 ",
+    "booktitle": "君がひとりで泣いた夜を、僕は全部抱きしめる。",
+    "booktitle_modal": "君がひとりで泣いた夜を、僕は全部抱きしめる。 ",
     "note01": "ユニモン／著<br>雨森ほわ／イラストレーター",
     "note02": "スターツ出版",
     "opponent": "いじめを受けている子たちへ",
@@ -6806,7 +6863,8 @@
     "name": "川井美悠",
     "year": "奥州市立水沢<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "岩手県",
-    "booktitle": "発達障害の僕が 輝ける場所を みつけられた理由 ",
+    "booktitle": "発達障害の僕が 輝ける場所を みつけられた理由",
+    "booktitle_modal": "発達障害の僕が 輝ける場所を みつけられた理由 ",
     "note01": "栗原類／著",
     "note02": "ＫＡＤＯＫＡＷＡ",
     "opponent": "障害を持っている人、障害を持ってない人",
@@ -6817,9 +6875,10 @@
     "name": "田代悠太",
     "year": "古川学園<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "宮城県",
-    "booktitle": "半分の月がのぼる空４ ",
+    "booktitle": "半分の月がのぼる空４　grabbing at the half-moon",
+    "booktitle_modal": "半分の月がのぼる空４ ",
     "note01": "橋本紡／著<br>山本ケイジ／イラスト",
-    "note02": "ＫＡＤＯＫＡＷＡ電撃文庫",
+    "note02": "ＫＡＤＯＫＡＷＡ 電撃文庫",
     "opponent": "大切な人を亡くしてしまった方",
     "txt": "　私は小学四年の九月十六日、胆管癌により母を亡くした。当時はただただ泣いて悲しむことしかできなかった。だが、今は母という存在すらも薄れつつあり、それは良いことなのか、悪いことなのか悩んでいる。この本は、肝炎のために入院している戎崎裕一が重い病を抱える秋庭里香に恋をする物語。裕一の知らぬ間に里香の容態は深刻化していく中での、彼らの何気ない会話や面白おかしい出来事の数々は、まるで過去の私と母との日常を描写しているようで、懐かしく、そして悲しく感じられた。そんな気持ちになっていくうちに、母の死に悩まず、自分なりに前へ進んでいこうと思えた。大切な人を亡くしてしまった方に是非読んでもらいたい一冊である。"
   },
@@ -6828,7 +6887,8 @@
     "name": "渡辺真悠",
     "year": "会津若松市立一箕<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "福島県",
-    "booktitle": "たいのおかしら ",
+    "booktitle": "たいのおかしら",
+    "booktitle_modal": "たいのおかしら ",
     "note01": "さくらももこ／著",
     "note02": "集英社文庫",
     "opponent": "親友へ",
@@ -6839,7 +6899,8 @@
     "name": "石原煌大",
     "year": "江戸川学園取手<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "茨城県",
-    "booktitle": "夏の庭—The Friends— ",
+    "booktitle": "夏の庭―The Friends―",
+    "booktitle_modal": "夏の庭—The Friends— ",
     "note01": "湯本香樹実／著",
     "note02": "新潮文庫",
     "opponent": "昨年亡くなったおじいちゃん",
@@ -6850,7 +6911,8 @@
     "name": "大村葵",
     "year": "つくばみらい市立小絹<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "茨城県",
-    "booktitle": "きょうから飛べるよ ",
+    "booktitle": "きょうから飛べるよ",
+    "booktitle_modal": "きょうから飛べるよ ",
     "note01": "小手鞠るい／作<br>たかすかずみ／絵",
     "note02": "岩崎書店",
     "opponent": "妹のはるちゃん",
@@ -6861,7 +6923,8 @@
     "name": "倉田澪乃",
     "year": "日本大学豊山女子<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "埼玉県",
-    "booktitle": "子犬工場 いのちが商品にされる場所",
+    "booktitle": "子犬工場",
+    "booktitle_modal": "子犬工場 いのちが商品にされる場所",
     "note01": "大岳美帆／著",
     "note02": "WAVE出版",
     "opponent": "動物をこれから飼う人",
@@ -6872,7 +6935,8 @@
     "name": "安齋さくら",
     "year": "柏市立西原<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "千葉県",
-    "booktitle": "家族シアター ",
+    "booktitle": "家族シアター",
+    "booktitle_modal": "家族シアター ",
     "note01": "辻村深月／著",
     "note02": "講談社文庫",
     "opponent": "家族のことで悩む中学生",
@@ -6883,7 +6947,8 @@
     "name": "内田碧",
     "year": "市川<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "千葉県",
-    "booktitle": "きみの町で ",
+    "booktitle": "きみの町で",
+    "booktitle_modal": "きみの町で ",
     "note01": "重松清／著<br>ミロコマチコ／絵",
     "note02": "朝日出版社",
     "opponent": "悩みがあるときの自分",
@@ -6894,7 +6959,8 @@
     "name": "真田幸空",
     "year": "江戸川学園取手<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "千葉県",
-    "booktitle": "西の魔女が死んだ ",
+    "booktitle": "西の魔女が死んだ",
+    "booktitle_modal": "西の魔女が死んだ ",
     "note01": "梨木香歩／著",
     "note02": "新潮文庫",
     "opponent": "自分を変えたいあなたに",
@@ -6905,7 +6971,8 @@
     "name": "新居花",
     "year": "市川<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "千葉県",
-    "booktitle": "ドキュメント 宇宙飛行士選抜試験 ",
+    "booktitle": "ドキュメント　宇宙飛行士選抜試験",
+    "booktitle_modal": "ドキュメント 宇宙飛行士選抜試験 ",
     "note01": "大鐘良一、小原健右／著",
     "note02": "光文社新書",
     "opponent": "大きな夢を持っているあなたへ",
@@ -6916,7 +6983,8 @@
     "name": "野表すみれ",
     "year": "白井市立南山<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "千葉県",
-    "booktitle": "おやさい妖精とまなぶ野菜の知識図鑑 ",
+    "booktitle": "おやさい妖精とまなぶ野菜の知識図鑑",
+    "booktitle_modal": "おやさい妖精とまなぶ野菜の知識図鑑 ",
     "note01": "ぽん吉／絵・作",
     "note02": "二見書房",
     "opponent": "野菜が嫌い・苦手な人",
@@ -6927,7 +6995,8 @@
     "name": "服部正樹",
     "year": "江戸川学園取手<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "千葉県",
-    "booktitle": "ＬＩＦＥ<ライフ> 人間が知らない生き方 ",
+    "booktitle": "LIFE<ライフ>　人間が知らない生き方",
+    "booktitle_modal": "ＬＩＦＥ<ライフ> 人間が知らない生き方 ",
     "note01": "麻生羽呂、篠原かをり／著",
     "note02": "文響社",
     "opponent": "どんな生き方をしたいか悩んでいる人",
@@ -6938,7 +7007,8 @@
     "name": "阿部珠美怜",
     "year": "日本女子大学附属<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "女子的生活 ",
+    "booktitle": "女子的生活",
+    "booktitle_modal": "女子的生活 ",
     "note01": "坂木司／著",
     "note02": "新潮文庫",
     "opponent": "少数派のあなたへ",
@@ -6949,9 +7019,10 @@
     "name": "楠本美凪",
     "year": "目黒星美学園<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "東京都",
-    "booktitle": "Ａｎｏｔｈｅｒ ",
+    "booktitle": "Ａｎｏｔｈｅｒ(上下巻)",
+    "booktitle_modal": "Ａｎｏｔｈｅｒ ",
     "note01": "綾辻行人／著",
-    "note02": "ＫＡＤＯＫＡＷＡ",
+    "note02": "角川文庫",
     "opponent": "明智小五郎",
     "txt": "　今から君のことをとにかく褒める。まず、君は頭が良すぎる。怪人二十面相と対等に渡り合ったり、易々と犯人を見破ったりと、本当に君はすごい。私はいつもその頭脳と推理に驚かされている。しかし、今まで君が何かに驚いたことがあっただろうか？　そこで、ある計画を立てた。題して「明智小五郎びっくり大作戦」だ。ということで、早速君に一つ、本を紹介しよう。この本の舞台の夜見山北中学三年三組には一人、「死者」が紛れているのだ。しかも「死者」がいることで起こるのは残酷な死の連鎖。止めるにはどうすればよいか。そして「死者」は誰なのか。<br>　この本の魅力は恐怖と驚愕だ。ああ、はやく君が腰を抜かすほど驚いている姿が見たいなあ！"
   },
@@ -6960,7 +7031,8 @@
     "name": "河野優翔",
     "year": "世田谷区立深沢<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "東京都",
-    "booktitle": "美しすぎる星たち 見る、知る、撮るの星座の教科書 ",
+    "booktitle": "美しすぎる星たち 見る、知る、撮るの星座の教科書",
+    "booktitle_modal": "美しすぎる星たち 見る、知る、撮るの星座の教科書 ",
     "note01": "渡部潤一／監修",
     "note02": "宝島社",
     "opponent": "会いたい人、見たい景色がある人へ",
@@ -6971,7 +7043,8 @@
     "name": "三條凛子",
     "year": "雙葉<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "東京都",
-    "booktitle": "かがやき子ども病院トレジャーハンター ",
+    "booktitle": "かがやき子ども病院トレジャーハンター",
+    "booktitle_modal": "かがやき子ども病院トレジャーハンター ",
     "note01": "まはら三桃／著<br>しまざきジョゼ／絵",
     "note02": "講談社",
     "opponent": "入院する人はかわいそうだと思っている人",
@@ -6982,7 +7055,8 @@
     "name": "須藤葵理",
     "year": "品川区立伊藤学園３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "光待つ場所へ ",
+    "booktitle": "光待つ場所へ",
+    "booktitle_modal": "光待つ場所へ ",
     "note01": "辻村深月／著",
     "note02": "講談社文庫",
     "opponent": "もう頑張れないと思った未来の自分",
@@ -6993,7 +7067,8 @@
     "name": "武田菜々花",
     "year": "女子美術大学付属<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "たくさんのドア ",
+    "booktitle": "たくさんのドア",
+    "booktitle_modal": "たくさんのドア ",
     "note01": "アリスン・マギー／著<br>ユ・テウン／絵<br>なかがわちひろ／訳",
     "note02": "主婦の友社",
     "opponent": "新しい世界への扉を開けようとしている人へ",
@@ -7004,7 +7079,8 @@
     "name": "中野楓",
     "year": "青山学院<span class='inline-bl'>中等部３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "ＷＩＮＤ ＢＲＥＡＫＥＲ（８） ",
+    "booktitle": "WIND BREAKER (8)",
+    "booktitle_modal": "ＷＩＮＤ ＢＲＥＡＫＥＲ（８） ",
     "note01": "にいさとる／著",
     "note02": "講談社",
     "opponent": "「ハイヒール」＝「女性」のものだと思う人へ",
@@ -7015,7 +7091,8 @@
     "name": "根岸よりの",
     "year": "恵泉女学園<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "東京都",
-    "booktitle": "わたしは千年生きた",
+    "booktitle": "わたしは千年生きた : 13歳のアウシュヴィッツ",
+    "booktitle_modal": "わたしは千年生きた",
     "note01": "リヴィア・ビトン＝ジャクソン／著<br>吉澤康子／訳",
     "note02": "NHK出版",
     "opponent": "13歳の人",
@@ -7026,7 +7103,8 @@
     "name": "長谷川功雅",
     "year": "青山学院<span class='inline-bl'>中等部３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "泣きたい夜の甘味処 ",
+    "booktitle": "泣きたい夜の甘味処",
+    "booktitle_modal": "泣きたい夜の甘味処 ",
     "note01": "中山有香里／著",
     "note02": "ＫＡＤＯＫＡＷＡ",
     "opponent": "疲れている人",
@@ -7037,7 +7115,8 @@
     "name": "星野煌之介",
     "year": "駒込<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "東京都",
-    "booktitle": "世界でいちばん素敵な元素の教室 ",
+    "booktitle": "世界でいちばん素敵な元素の教室",
+    "booktitle_modal": "世界でいちばん素敵な元素の教室 ",
     "note01": "栗山恭直、東京エレクトロン／監修<br>森山晋平／文",
     "note02": "三才ブックス",
     "opponent": "全ての人",
@@ -7048,7 +7127,8 @@
     "name": "巻田結菜",
     "year": "東京女学館<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "東京都",
-    "booktitle": "５分後に呪われるラスト ",
+    "booktitle": "５分後に呪われるラスト",
+    "booktitle_modal": "５分後に呪われるラスト ",
     "note01": "エブリスタ／編",
     "note02": "河出書房新社",
     "opponent": "幽霊",
@@ -7059,7 +7139,8 @@
     "name": "南理紗",
     "year": "恵泉女学園<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "東京都",
-    "booktitle": "世界でいちばんかなしい花",
+    "booktitle": "世界でいちばんかなしい花 : それは青森の女子高生たちがペット殺処分ゼロを目指して咲かせた花",
+    "booktitle_modal": "世界でいちばんかなしい花",
     "note01": "瀧晴巳／著",
     "note02": "ギャンビット パブリッシング",
     "opponent": "ペットを飼おうとしている人",
@@ -7070,7 +7151,8 @@
     "name": "山中汐音",
     "year": "恵泉女学園<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "東京都",
-    "booktitle": "臨床の砦 ",
+    "booktitle": "臨床の砦",
+    "booktitle_modal": "臨床の砦 ",
     "note01": "夏川草介／著",
     "note02": "小学館文庫",
     "opponent": "未来の自分",
@@ -7081,7 +7163,8 @@
     "name": "金子恭弥",
     "year": "平塚市立春日野<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "神奈川県",
-    "booktitle": "学校では教えてくれない大切なこと（１） 整理整頓 ",
+    "booktitle": "学校では教えてくれない大切なこと(1) 整理整頓",
+    "booktitle_modal": "学校では教えてくれない大切なこと（１） 整理整頓 ",
     "note01": "旺文社／編<br>入江久絵／マンガ・イラスト",
     "note02": "旺文社",
     "opponent": "整理整頓が苦手な人へ",
@@ -7092,7 +7175,8 @@
     "name": "佐々木心音",
     "year": "清泉女学院<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "神奈川県",
-    "booktitle": "明暗 ",
+    "booktitle": "明暗",
+    "booktitle_modal": "明暗 ",
     "note01": "夏目漱石／著",
     "note02": "新潮文庫",
     "opponent": "作家の卵の友人",
@@ -7103,7 +7187,8 @@
     "name": "指田悠征",
     "year": "多摩大学目黒<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "神奈川県",
-    "booktitle": "夢をかなえるゾウ１ ",
+    "booktitle": "夢をかなえるゾウ１",
+    "booktitle_modal": "夢をかなえるゾウ１ ",
     "note01": "水野敬也／著",
     "note02": "文響社",
     "opponent": "祖父",
@@ -7114,7 +7199,8 @@
     "name": "窪田葵",
     "year": "射水市立新湊南部<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "富山県",
-    "booktitle": "星を掬う ",
+    "booktitle": "星を掬う",
+    "booktitle_modal": "星を掬う ",
     "note01": "町田そのこ／著",
     "note02": "中央公論新社",
     "opponent": "お母さんがうるさいと感じるあなたへ",
@@ -7125,7 +7211,8 @@
     "name": "上坂粋生",
     "year": "高岡市立高岡西部<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "富山県",
-    "booktitle": "あんなに あんなに ",
+    "booktitle": "あんなに あんなに",
+    "booktitle_modal": "あんなに あんなに ",
     "note01": "ヨシタケシンスケ／著",
     "note02": "ポプラ社",
     "opponent": "反抗期真っただ中のあなたとそのお母さんたちへ",
@@ -7136,7 +7223,8 @@
     "name": "向山陽菜",
     "year": "松本秀峰<span class='inline-bl'>中等教育学校３年生</span>",
     "prefecture": "長野県",
-    "booktitle": "百まいのドレス ",
+    "booktitle": "百まいのドレス",
+    "booktitle_modal": "百まいのドレス ",
     "note01": "エレナー・エスティス／作<br>ルイス・スロボドキン／絵<br>石井桃子／訳",
     "note02": "岩波書店",
     "opponent": "二人の小さないとこ",
@@ -7147,7 +7235,8 @@
     "name": "山本天音",
     "year": "長野市立篠ノ井東<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "長野県",
-    "booktitle": "ぼくのまつり縫い 手芸男子は好きっていえない ",
+    "booktitle": "ぼくのまつり縫い　手芸男子は好きっていえない",
+    "booktitle_modal": "ぼくのまつり縫い 手芸男子は好きっていえない ",
     "note01": "神戸遥真／作<br>井田千秋／絵",
     "note02": "偕成社",
     "opponent": "妹",
@@ -7158,7 +7247,8 @@
     "name": "小田垣理子",
     "year": "川辺町立川辺<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "岐阜県",
-    "booktitle": "７・５グラムの奇跡",
+    "booktitle": "7.5グラムの奇跡",
+    "booktitle_modal": "７・５グラムの奇跡",
     "note01": "砥上裕將／著",
     "note02": "講談社",
     "opponent": "祖母",
@@ -7169,9 +7259,10 @@
     "name": "岡田美結",
     "year": "浜松市立江南<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "静岡県",
-    "booktitle": "温室デイズ ",
+    "booktitle": "温室デイズ",
+    "booktitle_modal": "温室デイズ ",
     "note01": "瀬尾まいこ／著",
-    "note02": "ＫＡＤＯＫＡＷＡ",
+    "note02": "角川文庫",
     "opponent": "人の心をふんでる人へ",
     "txt": "　誰かを傷つけたときあなたはどうしますか。もし人を傷つけているのなら今いじめられている人の立場を想像してみてください。もし想像が難しいのならこの本を読んでみてください。この本はもしかしたらいじめをしたあなたの行ったことが入った日記みたいですよ。変わるなら今ここです。もう傷つけるのは嫌だ、その思いが届いたのなら人の心をふんでないで今すぐその人の痛みをとってあげてください。人が嫌がることはしないでみんながあなたを認めてくれる人になりましょう。この本を読んだら心が涼しくなります。なぜかと言うともやもやがとれるからです。この本を読んで今目の前にある不幸を上から塗ってみましょう。幸せの第一章です。"
   },
@@ -7180,7 +7271,8 @@
     "name": "河合一馬",
     "year": "京都市立洛北<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "京都府",
-    "booktitle": "よだかの片想い ",
+    "booktitle": "よだかの片想い",
+    "booktitle_modal": "よだかの片想い ",
     "note01": "島本理生／著",
     "note02": "集英社文庫",
     "opponent": "コンプレックスをかかえている人へ",
@@ -7191,7 +7283,8 @@
     "name": "川勝小春",
     "year": "京都市立洛北<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "京都府",
-    "booktitle": "世界でいちばん貧しい大統領からきみへ ",
+    "booktitle": "世界でいちばん貧しい大統領からきみへ",
+    "booktitle_modal": "世界でいちばん貧しい大統領からきみへ ",
     "note01": "くさばよしみ／編",
     "note02": "汐文社",
     "opponent": "世界中の人へ",
@@ -7202,7 +7295,8 @@
     "name": "清水陽",
     "year": "京都市立深草<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "京都府",
-    "booktitle": "夢の病院をつくろう ",
+    "booktitle": "夢の病院をつくろう　チャイルド・ケモ・ハウスができるまで",
+    "booktitle_modal": "夢の病院をつくろう ",
     "note01": "ＮＰＯ法人チャイルド・ケモ・ハウス／著",
     "note02": "ポプラ社",
     "opponent": "医療関係者の方々",
@@ -7213,7 +7307,8 @@
     "name": "中野潤之介",
     "year": "京都市立洛北<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "京都府",
-    "booktitle": "おばけのケーキ屋さん ",
+    "booktitle": "おばけのケーキ屋さん",
+    "booktitle_modal": "おばけのケーキ屋さん ",
     "note01": "SAKAE／絵・文",
     "note02": "マイクロマガジン社",
     "opponent": "大切な人がいる人へ",
@@ -7224,7 +7319,8 @@
     "name": "西村柚菜",
     "year": "京都市立下京<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "京都府",
-    "booktitle": "僕は君たちに武器を配りたい ",
+    "booktitle": "僕は君たちに武器を配りたい　エッセンシャル版",
+    "booktitle_modal": "僕は君たちに武器を配りたい ",
     "note01": "瀧本哲史／著",
     "note02": "講談社文庫",
     "opponent": "自分だけの武器がほしい人",
@@ -7235,20 +7331,22 @@
     "name": "藤井千紘",
     "year": "京都市立洛北<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "京都府",
-    "booktitle": "わたしのげぼく ",
+    "booktitle": "わたしのげぼく",
+    "booktitle_modal": "わたしのげぼく ",
     "note01": "上野そら／著<br>くまくら珠美／作画",
     "note02": "アルファポリス",
     "opponent": "人類が一番えらいと思っている人",
-    "txt": "　人類が世界で一番えらいと思っているそこのアナタ、それは大きな間違いです。高度な技術力で栄えてきた我々人類の上をゆくその存在とは、神でも、地球外生命体でもない…そう、猫なのです。<br>「ほんとうに、しかたのないやつだな。わたしの下僕は。」<br>　これは、私が推す本、上野そらさん作『わたしのげぼく』の主人公である猫「わたし」の言葉。この本は、そんなナルシスト猫と「わたし」の召使い的な存在のどんくさい飼い主「げぼく」の心温まる物語です。あ、今アナタ「たかが猫が…」とか思いました？　残念です。しかし、この本を読み終わるころには、きっとアナタも神も地球外生命体も、涙を流して猫の前に平伏していることでしょう。"
+    "txt": "　人類が世界で一番えらいと思っているそこのアナタ、それは大きな間違いです。高度な技術力で栄えてきた我々人類の上をゆくその存在とは、神でも、地球外生命体でもない…そう、猫なのです。<br><span class='indent'>「ほんとうに、しかたのないやつだな。わたしの下僕は。」</span><br>　これは、私が推す本、上野そらさん作『わたしのげぼく』の主人公である猫「わたし」の言葉。この本は、そんなナルシスト猫と「わたし」の召使い的な存在のどんくさい飼い主「げぼく」の心温まる物語です。あ、今アナタ「たかが猫が…」とか思いました？　残念です。しかし、この本を読み終わるころには、きっとアナタも神も地球外生命体も、涙を流して猫の前に平伏していることでしょう。"
   },
   {
     "id": "junior-44",
     "name": "森園心結",
     "year": "京都市立洛北<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "京都府",
-    "booktitle": "兎の眼 ",
-    "note01": "灰谷健次郎／著<br>※カバーの絵柄は（株）かまわぬのてぬぐい柄を使用しています。",
-    "note02": "ＫＡＤＯＫＡＷＡ",
+    "booktitle": "兎の眼",
+    "booktitle_modal": "兎の眼 ",
+    "note01": "灰谷健次郎／著<br>てぬぐい柄（株式会社かまわぬ）／装画",
+    "note02": "角川文庫",
     "opponent": "将来の自分へ",
     "txt": "　今、私には夢があります。それは、小学校の教師になることです。将来の自分はこの夢を叶えられていますか。この本は、新人の女性教師が、子供達との交流の中で本当の教育とは何かを学んでいく物語です。<br>　私は、新人の教師小谷先生の奮闘する姿が印象に残りました。さまざまな心を持った子供達に対し、自分なりに思いを伝えて寄り添い、関係を築いていく小谷先生に私は憧れました。この本は、教育の力で子供達の心を動かすこともできるということを教えてくれます。<br>　将来、夢が叶っているのならばぜひ、この本を思い出し、小谷先生の教師像を再確認することで何か発見があるかもしれません。改めてこの本を読んでみてください。"
   },
@@ -7257,7 +7355,8 @@
     "name": "寺田佳史",
     "year": "大阪星光学院<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "大阪府",
-    "booktitle": "今森光彦 昆虫記 ",
+    "booktitle": "今森光彦 昆虫記",
+    "booktitle_modal": "今森光彦 昆虫記 ",
     "note01": "今森光彦／写真・文",
     "note02": "福音館書店",
     "opponent": "昆虫を愛する人",
@@ -7268,7 +7367,8 @@
     "name": "藤原芽衣",
     "year": "清風南海<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "大阪府",
-    "booktitle": "一〇五度 ",
+    "booktitle": "一〇五度",
+    "booktitle_modal": "一〇五度 ",
     "note01": "佐藤まどか／著",
     "note02": "あすなろ書房",
     "opponent": "人間関係で悩んでいる人",
@@ -7280,6 +7380,7 @@
     "year": "吹田市立第三<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "大阪府",
     "booktitle": "新 13歳のハローワーク",
+    "booktitle_modal": "新 13歳のハローワーク",
     "note01": "村上龍／著<br>はまのゆか／絵<br>",
     "note02": "幻冬舎",
     "opponent": "好きなことが無くて悩んでいる人",
@@ -7290,7 +7391,8 @@
     "name": "鈴木湊",
     "year": "神戸女学院<span class='inline-bl'>中学部１年生</span>",
     "prefecture": "兵庫県",
-    "booktitle": "夜と霧 ",
+    "booktitle": "夜と霧　新版",
+    "booktitle_modal": "夜と霧 ",
     "note01": "ヴィクトール・E・フランクル／著<br>池田香代子／訳",
     "note02": "みすず書房",
     "opponent": "苦しんでいる人へ",
@@ -7301,7 +7403,8 @@
     "name": "谷本花連",
     "year": "和歌山大学教育学部附属<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "和歌山県",
-    "booktitle": "アルジャーノンに花束を ",
+    "booktitle": "アルジャーノンに花束を〔新版〕",
+    "booktitle_modal": "アルジャーノンに花束を ",
     "note01": "ダニエル・キイス／著<br>小尾芙佐／訳",
     "note02": "ハヤカワ文庫NV",
     "opponent": "幸せとは何か考えている人",
@@ -7312,7 +7415,8 @@
     "name": "石井碧",
     "year": "福山市立済美<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "広島県",
-    "booktitle": "かがみの孤城 ",
+    "booktitle": "かがみの孤城(上下巻)",
+    "booktitle_modal": "かがみの孤城 ",
     "note01": "辻村深月／著",
     "note02": "ポプラ文庫",
     "opponent": "学校に行けてない人、またそんな友達がいる人へ",
@@ -7323,7 +7427,8 @@
     "name": "井原悠太",
     "year": "修道<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "広島県",
-    "booktitle": "青い鳥 ",
+    "booktitle": "青い鳥",
+    "booktitle_modal": "青い鳥 ",
     "note01": "重松清／著",
     "note02": "新潮文庫",
     "opponent": "悩みに苦しむ中学生",
@@ -7334,7 +7439,8 @@
     "name": "四辻佳穂",
     "year": "盈進<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "広島県",
-    "booktitle": "はてしない物語 ",
+    "booktitle": "はてしない物語(上下巻)",
+    "booktitle_modal": "はてしない物語 ",
     "note01": "ミヒャエル・エンデ／作<br>上田真而子、佐藤真理子／訳<br>ロスヴィタ・クヴァートフリーク／装画",
     "note02": "岩波少年文庫",
     "opponent": "本心をうまく伝えることができない人へ",
@@ -7345,7 +7451,8 @@
     "name": "黒田芽衣咲",
     "year": "高松市立桜町<span class='inline-bl'>中学校１年生</span>",
     "prefecture": "香川県",
-    "booktitle": "いい人ランキング ",
+    "booktitle": "いい人ランキング",
+    "booktitle_modal": "いい人ランキング ",
     "note01": "吉野万理子／著",
     "note02": "あすなろ書房",
     "opponent": "断ることが苦手なあなたへ",
@@ -7356,7 +7463,8 @@
     "name": "澤野広翔",
     "year": "高松市立桜町<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "香川県",
-    "booktitle": "１１２日間のママ ",
+    "booktitle": "112日間のママ",
+    "booktitle_modal": "１１２日間のママ ",
     "note01": "清水健／著",
     "note02": "小学館",
     "opponent": "大きな決断を目前にして悩んでいるすべての人達へ",
@@ -7367,7 +7475,8 @@
     "name": "長町そよか",
     "year": "高松市立桜町<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "香川県",
-    "booktitle": "朔と新 ",
+    "booktitle": "朔と新",
+    "booktitle_modal": "朔と新 ",
     "note01": "いとうみく／著",
     "note02": "講談社",
     "opponent": "また家族とケンカしてしまったあなたへ",
@@ -7378,7 +7487,8 @@
     "name": "マドン・ティリー",
     "year": "高知市立旭<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "高知県",
-    "booktitle": "沖縄のことを聞かせてください ",
+    "booktitle": "沖縄のことを聞かせてください",
+    "booktitle_modal": "沖縄のことを聞かせてください ",
     "note01": "宮沢和史／著<br>",
     "note02": "双葉社",
     "opponent": "これから日本の未来を担う、若い方々",
@@ -7389,7 +7499,8 @@
     "name": "清武琳",
     "year": "東福岡自彊館<span class='inline-bl'>中学校２年生</span>",
     "prefecture": "福岡県",
-    "booktitle": "もしも病院に犬がいたら",
+    "booktitle": "もしも病院に犬がいたら　こども病院ではたらく犬、ベイリー",
+    "booktitle_modal": "もしも病院に犬がいたら",
     "note01": "岩貞るみこ／作",
     "note02": "講談社青い鳥文庫",
     "opponent": "犬が好きなすべての人へ",
@@ -7401,6 +7512,7 @@
     "year": "熊本市立出水<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "熊本県",
     "booktitle": "残像に口紅を",
+    "booktitle_modal": "残像に口紅を",
     "note01": "筒井康隆／著",
     "note02": "中公文庫",
     "opponent": "退屈な人",
@@ -7411,7 +7523,8 @@
     "name": "中武源貴",
     "year": "宮崎県立宮崎西高等学校附属<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "宮崎県",
-    "booktitle": "山椒大夫・高瀬舟 ",
+    "booktitle": "山椒大夫・高瀬舟",
+    "booktitle_modal": "山椒大夫・高瀬舟 ",
     "note01": "森鴎外／著",
     "note02": "新潮文庫",
     "opponent": "祖母",
@@ -7422,7 +7535,8 @@
     "name": "阿部恵",
     "year": "鹿児島大学教育学部附属<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "鹿児島県",
-    "booktitle": "火車 ",
+    "booktitle": "火車",
+    "booktitle_modal": "火車 ",
     "note01": "宮部みゆき／著",
     "note02": "新潮文庫",
     "opponent": "未来の私",
@@ -7433,7 +7547,8 @@
     "name": "髙木莉子",
     "year": "神村学園<span class='inline-bl'>中等部２年生</span>",
     "prefecture": "鹿児島県",
-    "booktitle": "アインシュタイン ひらめきの言葉",
+    "booktitle": "アインシュタイン　ひらめきの言葉",
+    "booktitle_modal": "アインシュタイン ひらめきの言葉",
     "note01": "ディスカヴァー／編",
     "note02": "ディスカヴァー・トゥエンティワン",
     "opponent": "悩んでいる人へ",
@@ -7444,7 +7559,8 @@
     "name": "宮平友里香",
     "year": "西原町立西原東<span class='inline-bl'>中学校３年生</span>",
     "prefecture": "沖縄県",
-    "booktitle": "長くつ下のピッピ  ",
+    "booktitle": "長くつ下のピッピ",
+    "booktitle_modal": "長くつ下のピッピ  ",
     "note01": "アストリッド・リンドグレーン／作<br>須藤出穂／訳",
     "note02": "集英社　※現在は流通していません。",
     "opponent": "大人になった私",

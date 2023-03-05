@@ -1,4 +1,49 @@
 @charset "UTF-8";
+@mixin ie {
+    @media all and (-ms-high-contrast: none) {
+      @content;
+    }
+  }
+$pc:1600px;
+$notepc:1200px;
+$tab:750px;
+$sp:479px;
+@mixin pc {
+  @media(max-width:($pc)){
+    @content;
+  }
+}
+@mixin notepc {
+  @media(max-width:($notepc)){
+    @content;
+  }
+}
+@mixin upflex($break-up) {
+  @media(min-width:($break-up)){
+    @content;
+  }
+}
+@mixin uptab {
+  @media(min-width:($tab)){
+    @content;
+  }
+}
+
+@mixin tab {
+  @media(max-width:($tab)){
+    @content;
+  }
+}
+@mixin sp {
+  @media(max-width:($sp)){
+    @content;
+  }
+}
+@mixin flex($break-point) {
+  @media(max-width:($break-point)){
+    @content;
+  }
+}
 
 *,
 ::after,
@@ -251,6 +296,9 @@ img {
 .inner h1 img {
     margin: -50px auto 0;
     max-width: 750px;
+    @include notepc(){
+        width: 70vw;
+    }
 }
 
 @media screen and (max-width:750px) {
@@ -472,6 +520,9 @@ img {
     font-weight: 700;
     width: 100%;
     margin-top: 60px;
+    @include notepc(){
+        margin-top: 72px;
+    }
 }
 
 @media screen and (max-width:1200px) {
@@ -481,7 +532,7 @@ img {
 
     .mainvisual_bottom p {
         padding: 0 0 8%;
-        font-size: 1.8vw
+        font-size: 1.8vw;
     }
 
     rt {
