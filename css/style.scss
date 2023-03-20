@@ -288,16 +288,19 @@ img {
 
 @media (max-width:750px) {
     #mainvisual .inner {
-        width: 80vw;
+        width: 100vw;
         min-width: auto
     }
 }
 
 .inner h1 img {
     margin: -50px auto 0;
-    max-width: 750px;
+    max-width: 720px;
     @include notepc(){
         width: 70vw;
+    }
+    @include sp(){
+        width: 90vw;
     }
 }
 
@@ -468,13 +471,14 @@ img {
     position: relative;
     z-index: 1;
     bottom: -85px;
-
-}
-
-@media screen and (max-width:750px) {
-    #mainvisual h1 {
+    @include tab(){
         margin-bottom: -20%;
         padding-top: 29%
+
+    }
+    @include sp(){
+        padding-top: 15%;
+        padding-bottom: 50px;
     }
 }
 
@@ -505,7 +509,7 @@ img {
 }
 
 .mainvisual_bottom {
-    padding: 60px 0 80px;
+    padding: 250px 0 80px;
     margin-top: -2px;
     background: #ff9700
 }
@@ -523,11 +527,14 @@ img {
     @include notepc(){
         margin-top: 72px;
     }
+    @include sp(){
+        margin-top: 60px;
+    }
 }
 
 @media screen and (max-width:1200px) {
     .mainvisual_bottom {
-        padding: 6% 0 8%
+        padding: 22% 0 8%
     }
 
     .mainvisual_bottom p {
@@ -547,7 +554,7 @@ rt {
 
 @media screen and (max-width:750px) {
     .mainvisual_bottom {
-        padding: 10% 0 0;
+        padding: 25% 0 0;
         border-bottom-left-radius: 30px;
         border-bottom-right-radius: 30px
     }
@@ -3223,4 +3230,8 @@ img.main_button{
     bottom: 13%;
     left: 7%;
     z-index: -100;
+}
+
+.area_link:focus{
+        outline: none;
 }
